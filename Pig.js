@@ -112,7 +112,7 @@ class Pig extends Pet {
     drawWindMillHat(p) {
         if (this.showWindMillHat) {
             if (this.movingLeft) {
-                p.image(this.windmillHat, this.getXLocation() - 13, this.getYLocation() - 24, 15, 15);
+                p.image(this.windmillHat, this.getXLocation() - 14, this.getYLocation() - 24, 15, 15);
             } else {
                 p.image(this.windmillHat2, this.getXLocation() + 3, this.getYLocation() - 24, 15, 15);
             }
@@ -132,7 +132,7 @@ class Pig extends Pet {
     drawGentlemanHat(p) {
         if (this.showGentlemanHat) {
             if (this.movingLeft) {
-                p.image(this.gentlemanHat, this.getXLocation() - 13, this.getYLocation() - 24, 15, 15);
+                p.image(this.gentlemanHat, this.getXLocation() - 14, this.getYLocation() - 24, 15, 15);
             } else {
                 p.image(this.gentlemanHat2, this.getXLocation() + 3, this.getYLocation() - 24, 15, 15);
             }
@@ -152,9 +152,9 @@ class Pig extends Pet {
     drawCowboyHat(p) {
         if (this.showCowboyHat) {
             if (this.movingLeft) {
-                p.image(this.cowboyHat, this.getXLocation() - 13, this.getYLocation() - 24, 15, 15);
+                p.image(this.cowboyHat, this.getXLocation() - 14, this.getYLocation() - 24, 15, 15);
             } else {
-                p.image(this.cowboyHat2, this.getXLocation() + 3, this.getYLocation() - 24, 15, 15);
+                p.image(this.cowboyHat2, this.getXLocation() + 1, this.getYLocation() - 24, 15, 15);
             }
         }
     }
@@ -162,7 +162,7 @@ class Pig extends Pet {
     drawSantaHat(p) {
         if (this.showSantaHat) {
             if (this.movingLeft) {
-                p.image(this.santaHat2, this.getXLocation() - 13, this.getYLocation() - 24, 15, 15);
+                p.image(this.santaHat2, this.getXLocation() - 14, this.getYLocation() - 24, 15, 15);
             } else {
                 p.image(this.santaHat, this.getXLocation() + 3, this.getYLocation() - 24, 15, 15);
             }
