@@ -136,9 +136,9 @@ class Chicken extends Pet {
     drawCollar(p) {
         if (this.showCollar) {
             if (this.movingLeft) {
-                p.image(this.collar2, this.getXLocation() + 10, this.getYLocation() - 7,12,12);
+                p.image(this.collar2, this.getXLocation() + 5, this.getYLocation() - 7,12,12);
             } else {
-                p.image(this.collar, this.getXLocation() - 12, this.getYLocation() - 7,12,12);
+                p.image(this.collar, this.getXLocation() - 8, this.getYLocation() - 7,12,12);
             }
         }
     }
