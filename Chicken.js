@@ -35,8 +35,8 @@ class Chicken extends Pet {
 
                 let dx = this.xLocation - p.mouseX;
                 let dy = this.yLocation - p.mouseY;
-                let dist = p.dist(this.xLocation, this.yLocation, p.mouseX, p.mouseY);
 
+                let dist = p.dist(this.xLocation, this.yLocation, p.mouseX, p.mouseY);
                 if (dist !== 0) {
                     dx /= dist;
                     dy /= dist;
