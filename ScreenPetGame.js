@@ -98,7 +98,7 @@ class ScreenPetGame {
             let radius = 100;
 
             for (let c of this.coins) {
-                let distance = dist(this.currentPet.xLocation, this.currentPet.yLocation, c.getxLocation(), c.getyLocation());
+                let distance = p.dist(this.currentPet.xLocation, this.currentPet.yLocation, c.getxLocation(), c.getyLocation());
 
                 if (distance < shortestDistance && distance <= radius) {
                     shortestDistance = distance;
@@ -155,46 +155,46 @@ class ScreenPetGame {
     }
 
     draw(p) {
-        image(this.background, 0, 0);
-        fill(255);
-        rect(this.getRectX(), this.getRectY(), 50, 25);  // Always draw the box
+        p.image(this.background, 0, 0);
+        p.fill(255);
+        p.rect(this.getRectX(), this.getRectY(), 50, 25);  // Always draw the box
 
-        fill(0);
-        textSize(12);
-        textAlign(CENTER, CENTER);
-        text("Pet", this.getRectX() + 25, this.getRectY() + 12);  // Always say "Pet"
+        p.fill(0);
+        p.textSize(12);
+        p.textAlign(CENTER, CENTER);
+        p.text("Pet", this.getRectX() + 25, this.getRectY() + 12);  // Always say "Pet"
 
         // Now handle contents inside
         if (this.isClicked) {
-            fill(200);
-            rect(this.getRectX(), this.getRectY(), 50, 25);
+            p.fill(200);
+            p.rect(this.getRectX(), this.getRectY(), 50, 25);
 
-            fill(0);
-            textSize(12);
-            textAlign(CENTER, CENTER);
-            text("Pet", this.getRectX() + 25, this.getRectY() + 12);
+            p.fill(0);
+            p.textSize(12);
+            p.textAlign(CENTER, CENTER);
+            p.text("Pet", this.getRectX() + 25, this.getRectY() + 12);
             // Show pets
             textAlign(LEFT, CENTER);
             for (let i = 0; i < this.pets.length; i++) {
                 let y = this.getRectY() + 30 + i * 20;
-                fill(this.selectedPetIndex === i ? 200 : 255);
-                rect(this.getRectX(), y, 120, 20); // Widen box to fit key label
+                p.fill(this.selectedPetIndex === i ? 200 : 255);
+                p.rect(this.getRectX(), y, 120, 20); // Widen box to fit key label
 
                 let petCommands = [
                     "click/drag", "key A", "click",
                     "space", "click", "key D"
                 ];
 
-                fill(0);
+                p.fill(0);
                 let label = "Press " + (i + 1) + ": " + this.pets[i].getName() + "- " + petCommands[i];
-                text(label, this.getRectX() + 5, y + 10);
+                p.text(label, this.getRectX() + 5, y + 10);
             }
         } else {
             // Always draw the box
-            fill(0);
-            textSize(12);
-            textAlign(CENTER, CENTER);
-            text("Pet", this.getRectX() + 25, this.getRectY() + 12);
+            p.fill(0);
+            p.textSize(12);
+            p.textAlign(CENTER, CENTER);
+            p.text("Pet", this.getRectX() + 25, this.getRectY() + 12);
             // Show store
             this.theStore.draw(p);  // Store still only draws when not in pet mode
         }
@@ -205,17 +205,17 @@ class ScreenPetGame {
             aCoin.draw(p);
         }
 
-        fill(0);
-        textSize(20);
-        textAlign(CENTER, CENTER);
-        text("Collected " + this.collectedCoinCount + " coins", 100, 500);
+        p.fill(0);
+        p.textSize(20);
+        p.textAlign(CENTER, CENTER);
+        p.text("Collected " + this.collectedCoinCount + " coins", 100, 500);
 
         this.moveTowardsCoin();
 
-        fill(0);
-        textSize(20);
-        textAlign(LEFT, CENTER);
-        text(this.message, 30, 550);
+        p.fill(0);
+        p.textSize(20);
+        p.textAlign(LEFT, CENTER);
+        p.text(this.message, 30, 550);
 
         this.regenerateCoinsIfNeeded();
         this.unlockPetsBasedOnItems();
@@ -327,11 +327,11 @@ class ScreenPetGame {
         this.thePig.chaseMouse(p);
         this.theChicken.mouseClicked(p);
         this.theChicken.runAway(p);
-        if (mouseX >= this.theStore.getRectX() && mouseX <= this.theStore.getRectX() + 50 &&
-            mouseY >= this.theStore.getRectY() && mouseY <= this.theStore.getRectY() + 25) {
+        if (p.mouseX >= this.theStore.getRectX() && p.mouseX <= this.theStore.getRectX() + 50 &&
+            p.mouseY >= this.theStore.getRectY() && p.mouseY <= this.theStore.getRectY() + 25) {
             this.theStore.storeBox(p);
-        } else if (mouseX >= this.getRectX() && mouseX <= this.getRectX() + 50 &&
-                   mouseY >= this.getRectY() && mouseY <= this.getRectY() + 25) {
+        } else if (p.mouseX >= this.getRectX() && p.mouseX <= this.getRectX() + 50 &&
+                   p.mouseY >= this.getRectY() && p.mouseY <= this.getRectY() + 25) {
             this.petBox(p);
         }
     }
@@ -430,14 +430,14 @@ class ScreenPetGame {
             let dy = this.currentPet.getYLocation() - this.babyDuckY;
             this.babyDuckY += dy * easing;
 
-            if (frameCount % 10 === 0) {
+            if (p.frameCount % 10 === 0) {
                 this.currentFrame = (this.currentFrame + 1) % this.numFrames;
             }
 
             if (this.movingLeft) {
-                image(this.babyDuckImages[this.currentFrame], this.babyDuckX + 5, this.babyDuckY - 10);
+                p.image(this.babyDuckImages[this.currentFrame], this.babyDuckX + 5, this.babyDuckY - 10);
             } else {
-                image(this.babyDuckImages2[this.currentFrame], this.babyDuckX + 5, this.babyDuckY - 10);
+                p.image(this.babyDuckImages2[this.currentFrame], this.babyDuckX + 5, this.babyDuckY - 10);
             }
         }
     }
@@ -451,35 +451,35 @@ class ScreenPetGame {
     }
 
     keyPressed(p) {
-        if (key === 'A' || key === 'a') {
+        if (p.key === 'A' || p.key === 'a') {
             this.theCow.poops();
         }
 
-        if (key === '1') {
+        if (p.key === '1') {
             this.currentPet = this.thePet;
         }
 
-        if (key === '2') {
+        if (p.key === '2') {
             this.currentPet = this.theCow;
         }
 
-        if (key === '3') {
+        if (p.key === '3') {
             this.currentPet = this.theChicken;
         }
 
-        if (key === '4') {
+        if (p.key === '4') {
             this.currentPet = this.theHorse;
         }
 
-        if (key === '5') {
+        if (p.key === '5') {
             this.currentPet = this.thePig;
         }
 
-        if (key === '6') {
+        if (p.key === '6') {
             this.currentPet = this.theDragon;
-        } else if (key === ' ') {
+        } else if (p.key === ' ') {
             this.theHorse.unicorn(p);
-        } else if (key === 'D' || key === 'd') {
+        } else if (p.key === 'D' || p.key === 'd') {
             this.theDragon.flies(p);
         }
     }
