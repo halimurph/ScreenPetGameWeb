@@ -137,9 +137,9 @@ class Horse extends Pet {
     drawCollar(p) {
         if (this.showCollar) {
             if (this.movingLeft) {
-                p.image(this.collar2, this.getXLocation() - 13, this.getYLocation() - 5, 10, 10);
+                p.image(this.collar2, this.getXLocation() - 10, this.getYLocation() - 5, 10, 10);
             } else {
-                p.image(this.collar, this.getXLocation() + 10, this.getYLocation() - 5, 10, 10);
+                p.image(this.collar, this.getXLocation() + 5, this.getYLocation() - 5, 10, 10);
             }
         }
     }
@@ -147,9 +147,9 @@ class Horse extends Pet {
     drawGentlemanHat(p) {
         if (this.showGentlemanHat) {
             if (this.movingLeft) {
-                p.image(this.gentlemanHat, this.getXLocation() - 5, this.getYLocation() - 20, 10, 10);
+                p.image(this.gentlemanHat, this.getXLocation() - 10, this.getYLocation() - 20, 10, 10);
             } else {
-                p.image(this.gentlemanHat2, this.getXLocation() + 8, this.getYLocation() - 20, 10, 10);
+                p.image(this.gentlemanHat2, this.getXLocation() + 7, this.getYLocation() - 20, 10, 10);
             }
         }
     }
@@ -157,9 +157,9 @@ class Horse extends Pet {
     drawSunglass(p) {
         if (this.showSunglasses) {
             if (this.movingLeft) {
-                p.image(this.sunglasses2, this.getXLocation() - 13, this.getYLocation() - 15, 10, 10);
+                p.image(this.sunglasses2, this.getXLocation() - 15, this.getYLocation() - 12, 10, 10);
             } else {
-                p.image(this.sunglasses, this.getXLocation() + 10, this.getYLocation() - 15, 10, 10);
+                p.image(this.sunglasses, this.getXLocation() + 8, this.getYLocation() - 12, 10, 10);
             }
         }
     }
