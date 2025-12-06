@@ -171,7 +171,7 @@ class Dragon extends Pet {
     drawSunglass(p) {
         if (this.showSunglasses) {
             if (this.movingLeft) {
-                p.image(this.sunglasses2, this.getXLocation() - 10, this.getYLocation() - 8,12,12);
+                p.image(this.sunglasses2, this.getXLocation() - 12, this.getYLocation() - 8,12,12);
             } else {
                 p.image(this.sunglasses, this.getXLocation() + 3, this.getYLocation() - 8,12,12);
             }
