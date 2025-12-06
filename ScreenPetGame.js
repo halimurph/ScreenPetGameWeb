@@ -92,37 +92,44 @@ class ScreenPetGame {
     }
 
     moveTowardsCoin(p) {
-        if (this.coins.length > 0) {
-            let nearestCoin = null;
-            let shortestDistance = Number.MAX_VALUE;
-            let radius = 100;
+    if (this.coins.length > 0) {
+        let nearestCoin = null;
+        let shortestDistance = Number.MAX_VALUE;
+        let radius = 100;
 
-            for (let c of this.coins) {
-                let distance = p.dist(this.currentPet.xLocation, this.currentPet.yLocation, c.getxLocation(), c.getyLocation());
+        for (let c of this.coins) {
+            // Use getXLocation() consistently
+            let distance = p.dist(
+                this.currentPet.getXLocation(), 
+                this.currentPet.getYLocation(), 
+                c.getxLocation(), 
+                c.getyLocation()
+            );
 
-                if (distance < shortestDistance && distance <= radius) {
-                    shortestDistance = distance;
-                    nearestCoin = c;
-                }
+            if (distance < shortestDistance && distance <= radius) {
+                shortestDistance = distance;
+                nearestCoin = c;
             }
+        }
 
-            if (nearestCoin !== null) {
-                this.currentPet.xTarget = nearestCoin.getxLocation();
-                this.currentPet.yTarget = nearestCoin.getyLocation();
+        if (nearestCoin !== null) {
+            this.currentPet.xTarget = nearestCoin.getxLocation();
+            this.currentPet.yTarget = nearestCoin.getyLocation();
 
-                let dx = Math.abs(this.currentPet.getXLocation() - nearestCoin.getxLocation());
-                let dy = Math.abs(this.currentPet.getYLocation() - nearestCoin.getyLocation());
-
-                    if (dx < 15 && dy < 15) {  // Within 15 pixels = collected
-                        let index = this.coins.indexOf(nearestCoin);
-                        if (index > -1) {
-                        this.coins.splice(index, 1);
-                         }
-                     this.collectedCoinCount++;
-                 }
+            // Check if close enough to collect
+            let dx = Math.abs(this.currentPet.getXLocation() - nearestCoin.getxLocation());
+            let dy = Math.abs(this.currentPet.getYLocation() - nearestCoin.getyLocation());
+            
+            if (dx < 15 && dy < 15) {
+                let index = this.coins.indexOf(nearestCoin);
+                if (index > -1) {
+                    this.coins.splice(index, 1);
+                }
+                this.collectedCoinCount++;
             }
         }
     }
+}
 
     createStore() {
         this.theStore.createItems();
