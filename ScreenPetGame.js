@@ -91,7 +91,7 @@ class ScreenPetGame {
         }
     }
 
-    moveTowardsCoin() {
+    moveTowardsCoin(p) {
         if (this.coins.length > 0) {
             let nearestCoin = null;
             let shortestDistance = Number.MAX_VALUE;
@@ -210,7 +210,7 @@ class ScreenPetGame {
         p.textAlign(CENTER, CENTER);
         p.text("Collected " + this.collectedCoinCount + " coins", 100, 500);
 
-        this.moveTowardsCoin();
+        this.moveTowardsCoin(p);
 
         p.fill(0);
         p.textSize(20);
