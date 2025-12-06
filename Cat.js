@@ -32,26 +32,11 @@ class Cat extends Pet {
     }
 
     loadMedia(p) {
-        // Hats and accessories
-        this.windmillHatImg = p.loadImage("sprites/windmillHat.png");
-        this.windmillHat2Img = p.loadImage("sprites/windmillHatflipped.png");
+        this.windmillHat = p.loadImage("sprites/windmillHat.png");
+        this.windmillHat.resize(12, 12);
+        this.windmillHat2 = p.loadImage("sprites/windmillHatflipped.png");
+        this.windmillHat2.resize(12, 12);
 
-        this.collarImg = p.loadImage("sprites/collar.png");
-        this.collar2Img = p.loadImage("sprites/collarflipped.png");
-
-        this.cowboyHatImg = p.loadImage("sprites/cowboyHat.png");
-        this.cowboyHat2Img = p.loadImage("sprites/cowboyHatflipped.png");
-
-        this.gentlemanHatImg = p.loadImage("sprites/gentlemanHat.png");
-        this.gentlemanHat2Img = p.loadImage("sprites/gentlemanHatflipped.png");
-
-        this.sunglassesImg = p.loadImage("sprites/sunglasses.png");
-        this.sunglasses2Img = p.loadImage("sprites/sunglassesflipped.png");
-
-        this.santaHatImg = p.loadImage("sprites/santaHat.png");
-        this.santaHat2Img = p.loadImage("sprites/santaHatflipped.png");
-
-        // Cat image animations
         this.catImages[0] = p.loadImage("sprites/Gato-1.png");
         this.catImages[1] = p.loadImage("sprites/Gato-2.png");
         this.catImages[2] = p.loadImage("sprites/Gato-3.png");
@@ -59,32 +44,44 @@ class Cat extends Pet {
         this.catImages2[0] = p.loadImage("sprites/Gato-1flipped.png");
         this.catImages2[1] = p.loadImage("sprites/Gato-2flipped.png");
         this.catImages2[2] = p.loadImage("sprites/Gato-3flipped.png");
-
+        
         for (let i = 0; i < this.catImages.length; i++) {
             this.catImages[i].resize(100, 100);
             this.catImages2[i].resize(100, 100);
         }
-
-        this.windmillHatImg.resize(12, 12);
-        this.windmillHat2Img.resize(12, 12);
+        
+        this.collarImg = p.loadImage("sprites/collar.png");
         this.collarImg.resize(12, 12);
+        this.collar2Img = p.loadImage("sprites/collarflipped.png");
         this.collar2Img.resize(12, 12);
+
+        this.cowboyHatImg = p.loadImage("sprites/cowboyHat.png");
         this.cowboyHatImg.resize(12, 12);
+        this.cowboyHat2Img = p.loadImage("sprites/cowboyHatflipped.png");
         this.cowboyHat2Img.resize(12, 12);
+
+        this.gentlemanHatImg = p.loadImage("sprites/gentlemanHat.png");
         this.gentlemanHatImg.resize(12, 12);
+        this.gentlemanHat2Img = p.loadImage("sprites/gentlemanHatflipped.png");
         this.gentlemanHat2Img.resize(12, 12);
+
+        this.sunglassesImg = p.loadImage("sprites/sunglasses.png");
         this.sunglassesImg.resize(12, 12);
+        this.sunglasses2Img = p.loadImage("sprites/sunglassesflipped.png");
         this.sunglasses2Img.resize(12, 12);
+
+        this.santaHatImg = p.loadImage("sprites/santaHat.png");
         this.santaHatImg.resize(12, 12);
+        this.santaHat2Img = p.loadImage("sprites/santaHatflipped.png");
         this.santaHat2Img.resize(12, 12);
     }
 
     windMillHat(p) {
         if (this.showWindMillHat) {
             if (this.movingLeft) {
-                p.image(this.windmillHatImg, this.getXLocation() - 3, this.getYLocation() - 25);
+                p.image(this.windmillHat, this.getXLocation() - 3, this.getYLocation() - 25);
             } else {
-                p.image(this.windmillHat2Img, this.getXLocation() + 10, this.getYLocation() - 25);
+                p.image(this.windmillHat2, this.getXLocation() + 10, this.getYLocation() - 25);
             }
         }
     }
