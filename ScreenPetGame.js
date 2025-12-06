@@ -51,7 +51,7 @@ class ScreenPetGame {
         this.createAvatar();
         this.createCoins();
         this.createStore();
-        this.pets();
+        this.addPets();
     }
 
     createAvatar() {
@@ -59,14 +59,14 @@ class ScreenPetGame {
         this.thePet.isPetLocked();
     }
 
-    pets() {
-        this.pets.push(this.thePet);
-        this.pets.push(this.theCow);
-        this.pets.push(this.theChicken);
-        this.pets.push(this.theHorse);
-        this.pets.push(this.thePig);
-        this.pets.push(this.theDragon);
-    }
+    addPets() {
+    this.pets.push(this.thePet);
+    this.pets.push(this.theCow);
+    this.pets.push(this.theChicken);
+    this.pets.push(this.theHorse);
+    this.pets.push(this.thePig);
+    this.pets.push(this.theDragon);
+}
 
     createCoins() {
         if (this.coins.length > 20) {
