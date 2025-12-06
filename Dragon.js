@@ -22,24 +22,24 @@ class Dragon extends Pet {
                 if (p.frameCount % 10 === 0) {
                     this.currentFrame = (this.currentFrame + 1) % this.numFramesFly;
                 }
-                p.image(this.flyImages[this.currentFrame], this.xLocation - 10, this.yLocation - 20);
+                p.image(this.flyImages[this.currentFrame], this.xLocation - 50, this.yLocation - 25,50,30);
             } else {
                 if (p.frameCount % 10 === 0) {
                     this.currentFrame = (this.currentFrame + 1) % this.numFramesFly;
                 }
-                p.image(this.flyImages2[this.currentFrame], this.xLocation - 10, this.yLocation - 20);
+                p.image(this.flyImages2[this.currentFrame], this.xLocation - 50, this.yLocation - 25,50,30);
             }
         } else {
             if (this.movingLeft) {
                 if (p.frameCount % 10 === 0) {
                     this.currentFrame = (this.currentFrame + 1) % this.numFrames;
                 }
-                p.image(this.dragonImages[this.currentFrame], this.xLocation - 5, this.yLocation - 20);
+                p.image(this.dragonImages[this.currentFrame], this.xLocation - 12, this.yLocation - 10,25,20);
             } else {
                 if (p.frameCount % 10 === 0) {
                     this.currentFrame = (this.currentFrame + 1) % this.numFrames;
                 }
-                p.image(this.dragonImages2[this.currentFrame], this.xLocation - 5, this.yLocation - 20);
+                p.image(this.dragonImages2[this.currentFrame], this.xLocation - 12, this.yLocation - 10,25,20);
             }
         }
 
