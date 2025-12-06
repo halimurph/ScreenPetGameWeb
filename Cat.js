@@ -35,18 +35,18 @@ class Cat extends Pet {
     }
 
     loadMedia(p) {
-        this.windmillHat = p.loadImage("sprites/windmillHat.png");
+        this.windmillHat = p.loadImage("sprites" + fileSeparator + "windmillHat.png");
         this.windmillHat.resize(12, 12);
-        this.windmillHat2 = p.loadImage("sprites/windmillHatflipped.png");
+        this.windmillHat2 = p.loadImage("sprites" + fileSeparator + "windmillHatflipped.png");
         this.windmillHat2.resize(12, 12);
 
-        this.catImages[0] = p.loadImage("sprites/Gato-1.png");
-        this.catImages[1] = p.loadImage("sprites/Gato-2.png");
-        this.catImages[2] = p.loadImage("sprites/Gato-3.png");
+        this.catImages[0] = p.loadImage("sprites" + fileSeparator + "Gato-1.png");
+        this.catImages[1] = p.loadImage("sprites" + fileSeparator + "Gato-2.png");
+        this.catImages[2] = p.loadImage("sprites" + fileSeparator + "Gato-3.png");
 
-        this.catImages2[0] = p.loadImage("Ssprites/Gato-1flipped.png");
-        this.catImages2[1] = p.loadImage("sprites/Gato-2flipped.png");
-        this.catImages2[2] = p.loadImage("sprites/Gato-3flipped.png");
+        this.catImages2[0] = p.loadImage("Ssprites" + fileSeparator + "Gato-1flipped.png");
+        this.catImages2[1] = p.loadImage("sprites" + fileSeparator + "Gato-2flipped.png");
+        this.catImages2[2] = p.loadImage("sprites" + fileSeparator + "Gato-3flipped.png");
         
         for (let i = 0; i < this.catImages.length; i++) {
             this.catImages[i].resize(100, 100);
@@ -54,29 +54,29 @@ class Cat extends Pet {
             // Resize each image one by one
         }
         
-        this.collar = p.loadImage("sprites/collar.png");
+        this.collar = p.loadImage("sprites" + fileSeparator + "collar.png");
         this.collar.resize(12, 12);
-        this.collar2 = p.loadImage("sprites/collarflipped.png");
+        this.collar2 = p.loadImage("sprites" + fileSeparator + "collarflipped.png");
         this.collar2.resize(12, 12);
 
-        this.cowboyHat = p.loadImage("sprites/cowboyHat.png");
+        this.cowboyHat = p.loadImage("sprites" + fileSeparator + "cowboyHat.png");
         this.cowboyHat.resize(12, 12);
-        this.cowboyHat2 = p.loadImage("sprites/cowboyHatflipped.png");
+        this.cowboyHat2 = p.loadImage("sprites" + fileSeparator + "cowboyHatflipped.png");
         this.cowboyHat2.resize(12, 12);
 
-        this.gentlemanHat = p.loadImage("sprites/gentlemanHat.png");
+        this.gentlemanHat = p.loadImage("sprites" + fileSeparator + "gentlemanHat.png");
         this.gentlemanHat.resize(12, 12);
-        this.gentlemanHat2 = p.loadImage("sprites/gentlemanHatflipped.png");
+        this.gentlemanHat2 = p.loadImage("sprites" + fileSeparator + "gentlemanHatflipped.png");
         this.gentlemanHat2.resize(12, 12);
 
-        this.sunglasses = p.loadImage("sprites/sunglasses.png");
+        this.sunglasses = p.loadImage("sprites" + fileSeparator + "sunglasses.png");
         this.sunglasses.resize(12, 12);
-        this.sunglasses2 = p.loadImage("sprites/sunglassesflipped.png");
+        this.sunglasses2 = p.loadImage("sprites" + fileSeparator + "sunglassesflipped.png");
         this.sunglasses2.resize(12, 12);
 
-        this.santaHat = p.loadImage("sprites/santaHat.png");
+        this.santaHat = p.loadImage("sprites" + fileSeparator + "santaHat.png");
         this.santaHat.resize(12, 12);
-        this.santaHat2 = p.loadImage("sprites/santaHatflipped.png");
+        this.santaHat2 = p.loadImage("sprites" + fileSeparator + "santaHatflipped.png");
         this.santaHat2.resize(12, 12);
     }
 
