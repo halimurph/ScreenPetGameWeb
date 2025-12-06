@@ -11,6 +11,20 @@ class Pig extends Pet {
         this.currentFrame = 0;
         this.pigImages = new Array(this.numFrames);
         this.pigImages2 = new Array(this.numFrames);
+
+        // Renamed sprite variables to avoid conflicts with draw functions
+        this.windmillHatImg = null;
+        this.windmillHat2Img = null;
+        this.collarImg = null;
+        this.collar2Img = null;
+        this.gentlemanHatImg = null;
+        this.gentlemanHat2Img = null;
+        this.sunglassesImg = null;
+        this.sunglasses2Img = null;
+        this.cowboyHatImg = null;
+        this.cowboyHat2Img = null;
+        this.santaHatImg = null;
+        this.santaHat2Img = null;
     }
 
     draw(p) {
@@ -18,7 +32,7 @@ class Pig extends Pet {
 
         if (this.movingLeft) {
             if (p.frameCount % 10 === 0) {
-                this.currentFrame = (this.currentFrame + 1) % this.numFrames;  // Loop back to 0 after last frame
+                this.currentFrame = (this.currentFrame + 1) % this.numFrames;
             }
             p.image(this.pigImages[this.currentFrame], this.xLocation - 5, this.yLocation - 20);
         } else {
@@ -28,18 +42,12 @@ class Pig extends Pet {
             p.image(this.pigImages2[this.currentFrame], this.xLocation - 5, this.yLocation - 20);
         }
 
-        // p.fill(255, 0, 0);
-        // p.textSize(20);
-        // p.text("Pig", this.xLocation, this.yLocation);
-
-        if (this.isClick === true) { // add a timer for 5secs
+        if (this.isClick === true) {
             if (this.timerStarted) {
-
                 let current = Math.floor((p.millis() - this.timeStart) / 1000);
                 this.timer = this.startTime - current;
 
                 p.frameRate(150);
-
                 this.xTarget = p.mouseX;
                 this.yTarget = p.mouseY;
             }
@@ -48,6 +56,7 @@ class Pig extends Pet {
             this.timerStarted = false;
             p.frameRate(60);
         }
+
         this.windMillHat(p);
         this.collar(p);
         this.gentlemanHat(p);
@@ -81,43 +90,43 @@ class Pig extends Pet {
             this.pigImages2[i].resize(30, 20);
         }
 
-        this.windmillHat = p.loadImage("sprites/windmillHat.png");
-        this.windmillHat.resize(15, 15);
-        this.windmillHat2 = p.loadImage("sprites/windmillHatflipped.png");
-        this.windmillHat2.resize(15, 15);
+        this.windmillHatImg = p.loadImage("sprites/windmillHat.png");
+        this.windmillHatImg.resize(15, 15);
+        this.windmillHat2Img = p.loadImage("sprites/windmillHatflipped.png");
+        this.windmillHat2Img.resize(15, 15);
 
-        this.collar = p.loadImage("sprites/collar.png");
-        this.collar.resize(15, 15);
-        this.collar2 = p.loadImage("sprites/collarflipped.png");
-        this.collar2.resize(15, 15);
+        this.collarImg = p.loadImage("sprites/collar.png");
+        this.collarImg.resize(15, 15);
+        this.collar2Img = p.loadImage("sprites/collarflipped.png");
+        this.collar2Img.resize(15, 15);
 
-        this.gentlemanHat = p.loadImage("sprites/gentlemanHat.png");
-        this.gentlemanHat.resize(15, 15);
-        this.gentlemanHat2 = p.loadImage("sprites/gentlemanHatflipped.png");
-        this.gentlemanHat2.resize(15, 15);
+        this.gentlemanHatImg = p.loadImage("sprites/gentlemanHat.png");
+        this.gentlemanHatImg.resize(15, 15);
+        this.gentlemanHat2Img = p.loadImage("sprites/gentlemanHatflipped.png");
+        this.gentlemanHat2Img.resize(15, 15);
 
-        this.sunglasses = p.loadImage("sprites/sunglasses.png");
-        this.sunglasses.resize(15, 15);
-        this.sunglasses2 = p.loadImage("sprites/sunglassesflipped.png");
-        this.sunglasses2.resize(15, 15);
+        this.sunglassesImg = p.loadImage("sprites/sunglasses.png");
+        this.sunglassesImg.resize(15, 15);
+        this.sunglasses2Img = p.loadImage("sprites/sunglassesflipped.png");
+        this.sunglasses2Img.resize(15, 15);
 
-        this.cowboyHat = p.loadImage("sprites/cowboyHat.png");
-        this.cowboyHat.resize(15, 15);
-        this.cowboyHat2 = p.loadImage("sprites/cowboyHatflipped.png");
-        this.cowboyHat2.resize(15, 15);
+        this.cowboyHatImg = p.loadImage("sprites/cowboyHat.png");
+        this.cowboyHatImg.resize(15, 15);
+        this.cowboyHat2Img = p.loadImage("sprites/cowboyHatflipped.png");
+        this.cowboyHat2Img.resize(15, 15);
 
-        this.santaHat = p.loadImage("sprites/santaHat.png");
-        this.santaHat.resize(15, 15);
-        this.santaHat2 = p.loadImage("sprites/santaHatflipped.png");
-        this.santaHat2.resize(15, 15);
+        this.santaHatImg = p.loadImage("sprites/santaHat.png");
+        this.santaHatImg.resize(15, 15);
+        this.santaHat2Img = p.loadImage("sprites/santaHatflipped.png");
+        this.santaHat2Img.resize(15, 15);
     }
 
     windMillHat(p) {
         if (this.showWindMillHat) {
             if (this.movingLeft) {
-                p.image(this.windmillHat, this.getXLocation() - 5, this.getYLocation() - 30);
+                p.image(this.windmillHatImg, this.getXLocation() - 5, this.getYLocation() - 30);
             } else {
-                p.image(this.windmillHat2, this.getXLocation() + 10, this.getYLocation() - 30);
+                p.image(this.windmillHat2Img, this.getXLocation() + 10, this.getYLocation() - 30);
             }
         }
     }
@@ -125,9 +134,9 @@ class Pig extends Pet {
     collar(p) {
         if (this.showCollar) {
             if (this.movingLeft) {
-                p.image(this.collar2, this.getXLocation() - 5, this.getYLocation() - 10);
+                p.image(this.collar2Img, this.getXLocation() - 5, this.getYLocation() - 10);
             } else {
-                p.image(this.collar, this.getXLocation() + 10, this.getYLocation() - 10);
+                p.image(this.collarImg, this.getXLocation() + 10, this.getYLocation() - 10);
             }
         }
     }
@@ -135,9 +144,9 @@ class Pig extends Pet {
     gentlemanHat(p) {
         if (this.showGentlemanHat) {
             if (this.movingLeft) {
-                p.image(this.gentlemanHat, this.getXLocation() - 5, this.getYLocation() - 30);
+                p.image(this.gentlemanHatImg, this.getXLocation() - 5, this.getYLocation() - 30);
             } else {
-                p.image(this.gentlemanHat2, this.getXLocation() + 10, this.getYLocation() - 30);
+                p.image(this.gentlemanHat2Img, this.getXLocation() + 10, this.getYLocation() - 30);
             }
         }
     }
@@ -145,9 +154,9 @@ class Pig extends Pet {
     sunglass(p) {
         if (this.showSunglasses) {
             if (this.movingLeft) {
-                p.image(this.sunglasses2, this.getXLocation() - 5, this.getYLocation() - 20);
+                p.image(this.sunglasses2Img, this.getXLocation() - 5, this.getYLocation() - 20);
             } else {
-                p.image(this.sunglasses, this.getXLocation() + 10, this.getYLocation() - 20);
+                p.image(this.sunglassesImg, this.getXLocation() + 10, this.getYLocation() - 20);
             }
         }
     }
@@ -155,9 +164,9 @@ class Pig extends Pet {
     cowboyHat(p) {
         if (this.showCowboyHat) {
             if (this.movingLeft) {
-                p.image(this.cowboyHat, this.getXLocation() - 5, this.getYLocation() - 30);
+                p.image(this.cowboyHatImg, this.getXLocation() - 5, this.getYLocation() - 30);
             } else {
-                p.image(this.cowboyHat2, this.getXLocation() + 10, this.getYLocation() - 30);
+                p.image(this.cowboyHat2Img, this.getXLocation() + 10, this.getYLocation() - 30);
             }
         }
     }
@@ -165,9 +174,9 @@ class Pig extends Pet {
     santaHat(p) {
         if (this.showSantaHat) {
             if (this.movingLeft) {
-                p.image(this.santaHat2, this.getXLocation() - 5, this.getYLocation() - 30);
+                p.image(this.santaHat2Img, this.getXLocation() - 5, this.getYLocation() - 30);
             } else {
-                p.image(this.santaHat, this.getXLocation() + 10, this.getYLocation() - 30);
+                p.image(this.santaHatImg, this.getXLocation() + 10, this.getYLocation() - 30);
             }
         }
     }
