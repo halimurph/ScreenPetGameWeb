@@ -174,7 +174,7 @@ class ScreenPetGame {
             p.textAlign(CENTER, CENTER);
             p.text("Pet", this.getRectX() + 25, this.getRectY() + 12);
             // Show pets
-            textAlign(LEFT, CENTER);
+            p.textAlign(LEFT, CENTER);
             for (let i = 0; i < this.pets.length; i++) {
                 let y = this.getRectY() + 30 + i * 20;
                 p.fill(this.selectedPetIndex === i ? 200 : 255);
