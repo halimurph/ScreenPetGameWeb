@@ -18,7 +18,7 @@ class Chicken extends Pet {
 
         if (this.movingLeft) {
             if (p.frameCount % 10 === 0) {
-                this.currentFrame = (this.currentFrame + 1) % this.numFrames;  // Loop back to 0 after last frame
+                this.currentFrame = (this.currentFrame + 1) % this.numFrames;
             }
             p.image(this.chickenImages[this.currentFrame], this.xLocation - 10, this.yLocation - 20);
         } else {
@@ -28,48 +28,42 @@ class Chicken extends Pet {
             p.image(this.chickenImages2[this.currentFrame], this.xLocation - 10, this.yLocation - 20);
         }
 
-        // p.fill(255, 0, 0);
-        // p.textSize(20);
-        // p.text("Chicken", this.xLocation, this.yLocation);
-
-        if (this.isClick === true) { // add a timer for 5secs
+        if (this.isClick === true) {
             if (this.timerStarted) {
-
                 let current = Math.floor((p.millis() - this.timeStart) / 1000);
                 this.timer = this.startTime - current;
 
                 let dx = this.xLocation - p.mouseX;
                 let dy = this.yLocation - p.mouseY;
-
-                // Normalize the direction vector
                 let dist = p.dist(this.xLocation, this.yLocation, p.mouseX, p.mouseY);
+
                 if (dist !== 0) {
                     dx /= dist;
                     dy /= dist;
                 }
 
-                // Repelling strength
                 let repelSpeed = p.map(dist, 0, 200, 10, 2);
                 repelSpeed = p.constrain(repelSpeed, 2, 10);
 
                 this.xLocation += dx * repelSpeed;
                 this.yLocation += dy * repelSpeed;
 
-                // Keep the chicken within window bounds
                 this.xLocation = p.constrain(this.xLocation, 0, p.width - 50);
                 this.yLocation = p.constrain(this.yLocation, 0, p.height - 50);
             }
         }
+
         if (this.timer === 0) {
             this.timerStarted = false;
             this.fast = false;
         }
-        this.windMillHat(p);
-        this.collar(p);
-        this.gentlemanHat(p);
-        this.sunglass(p);
-        this.cowboyHat(p);
-        this.santaHat(p);
+
+        this.drawWindMillHat(p);
+        this.drawCollar(p);
+        this.drawGentlemanHat(p);
+        this.drawSunglass(p);
+        this.drawCowboyHat(p);
+        this.drawSantaHat(p);
     }
 
     loadMedia(p) {
@@ -87,6 +81,7 @@ class Chicken extends Pet {
             this.chickenImages[i].resize(20, 15);
             this.chickenImages2[i].resize(20, 15);
         }
+
         this.windmillHat = p.loadImage("sprites/windmillHat.png");
         this.windmillHat.resize(12, 12);
         this.windmillHat2 = p.loadImage("sprites/windmillHatflipped.png");
@@ -109,7 +104,7 @@ class Chicken extends Pet {
 
         this.cowboyHat = p.loadImage("sprites/cowboyHat.png");
         this.cowboyHat.resize(12, 12);
-        this.cowboyHat2 = p.loadImage("sprites//cowboyHatflipped.png");
+        this.cowboyHat2 = p.loadImage("sprites/cowboyHatflipped.png");
         this.cowboyHat2.resize(12, 12);
 
         this.santaHat = p.loadImage("sprites/santaHat.png");
@@ -128,7 +123,7 @@ class Chicken extends Pet {
         this.isClick = true;
     }
 
-    windMillHat(p) {
+    drawWindMillHat(p) {
         if (this.showWindMillHat) {
             if (this.movingLeft) {
                 p.image(this.windmillHat, this.getXLocation() - 10, this.getYLocation() - 27);
@@ -138,7 +133,7 @@ class Chicken extends Pet {
         }
     }
 
-    collar(p) {
+    drawCollar(p) {
         if (this.showCollar) {
             if (this.movingLeft) {
                 p.image(this.collar2, this.getXLocation() - 10, this.getYLocation() - 18);
@@ -148,7 +143,7 @@ class Chicken extends Pet {
         }
     }
 
-    gentlemanHat(p) {
+    drawGentlemanHat(p) {
         if (this.showGentlemanHat) {
             if (this.movingLeft) {
                 p.image(this.gentlemanHat, this.getXLocation() - 10, this.getYLocation() - 30);
@@ -158,7 +153,7 @@ class Chicken extends Pet {
         }
     }
 
-    sunglass(p) {
+    drawSunglass(p) {
         if (this.showSunglasses) {
             if (this.movingLeft) {
                 p.image(this.sunglasses2, this.getXLocation() - 10, this.getYLocation() - 27);
@@ -168,7 +163,7 @@ class Chicken extends Pet {
         }
     }
 
-    cowboyHat(p) {
+    drawCowboyHat(p) {
         if (this.showCowboyHat) {
             if (this.movingLeft) {
                 p.image(this.cowboyHat, this.getXLocation() - 10, this.getYLocation() - 27);
@@ -178,7 +173,7 @@ class Chicken extends Pet {
         }
     }
 
-    santaHat(p) {
+    drawSantaHat(p) {
         if (this.showSantaHat) {
             if (this.movingLeft) {
                 p.image(this.santaHat2, this.getXLocation() - 10, this.getYLocation() - 30);
