@@ -127,9 +127,9 @@ class Horse extends Pet {
     drawWindMillHat(p) {
         if (this.showWindMillHat) {
             if (this.movingLeft) {
-                p.image(this.windmillHat, this.getXLocation() - 5, this.getYLocation() - 20, 10, 10);
+                p.image(this.windmillHat, this.getXLocation() - 13, this.getYLocation() - 20, 10, 10);
             } else {
-                p.image(this.windmillHat2, this.getXLocation() + 8, this.getYLocation() - 20, 10, 10);
+                p.image(this.windmillHat2, this.getXLocation() + 6, this.getYLocation() - 20, 10, 10);
             }
         }
     }
@@ -147,7 +147,7 @@ class Horse extends Pet {
     drawGentlemanHat(p) {
         if (this.showGentlemanHat) {
             if (this.movingLeft) {
-                p.image(this.gentlemanHat, this.getXLocation() - 12, this.getYLocation() - 20, 10, 10);
+                p.image(this.gentlemanHat, this.getXLocation() - 13, this.getYLocation() - 20, 10, 10);
             } else {
                 p.image(this.gentlemanHat2, this.getXLocation() + 6, this.getYLocation() - 20, 10, 10);
             }
@@ -167,9 +167,9 @@ class Horse extends Pet {
     drawCowboyHat(p) {
         if (this.showCowboyHat) {
             if (this.movingLeft) {
-                p.image(this.cowboyHat, this.getXLocation() - 5, this.getYLocation() - 20, 10, 10);
+                p.image(this.cowboyHat, this.getXLocation() - 13, this.getYLocation() - 20, 10, 10);
             } else {
-                p.image(this.cowboyHat2, this.getXLocation() + 8, this.getYLocation() - 20, 10, 10);
+                p.image(this.cowboyHat2, this.getXLocation() + 6, this.getYLocation() - 20, 10, 10);
             }
         }
     }
@@ -177,9 +177,9 @@ class Horse extends Pet {
     drawSantaHat(p) {
         if (this.showSantaHat) {
             if (this.movingLeft) {
-                p.image(this.santaHat2, this.getXLocation() - 5, this.getYLocation() - 20, 10, 10);
+                p.image(this.santaHat2, this.getXLocation() - 13, this.getYLocation() - 20, 10, 10);
             } else {
-                p.image(this.santaHat, this.getXLocation() + 8, this.getYLocation() - 20, 10, 10);
+                p.image(this.santaHat, this.getXLocation() + 6, this.getYLocation() - 20, 10, 10);
             }
         }
     }
