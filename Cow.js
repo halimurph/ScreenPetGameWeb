@@ -1,8 +1,8 @@
 class Cow extends Pet {
     constructor(petLocked, x, y) {
         super("Cow", petLocked, x, y);
-        
-        this.poops = []; // List to store the positions of poop
+
+        this.poops = [];
         this.numFrames = 4;
         this.currentFrame = 0;
         this.cowImages = new Array(this.numFrames);
@@ -15,7 +15,7 @@ class Cow extends Pet {
 
         if (this.movingLeft) {
             if (p.frameCount % 10 === 0) {
-                this.currentFrame = (this.currentFrame + 1) % this.numFrames;  // Loop back to 0 after last frame
+                this.currentFrame = (this.currentFrame + 1) % this.numFrames;
             }
             p.image(this.cowImages[this.currentFrame], this.xLocation - 10, this.yLocation - 20);
         } else {
@@ -26,20 +26,18 @@ class Cow extends Pet {
         }
 
         for (let poop of this.poops) {
-            // p.fill(139, 69, 19);
-            // p.noStroke();
-            // p.circle(poop.x + 20, poop.y, 5); // Use the stored position for drawing
             p.image(this.poopy, poop.x + 20, poop.y);
         }
-        this.windMillHat(p);
-        this.collar(p);
-        this.gentlemanHat(p);
-        this.sunglass(p);
-        this.cowboyHat(p);
-        this.santaHat(p);
+
+        this.drawWindMillHat(p);
+        this.drawCollar(p);
+        this.drawGentlemanHat(p);
+        this.drawSunglass(p);
+        this.drawCowboyHat(p);
+        this.drawSantaHat(p);
     }
 
-    poops() {
+    dropPoop(p) {
         this.poops.push(p.createVector(this.xLocation, this.yLocation));
     }
 
@@ -93,7 +91,7 @@ class Cow extends Pet {
         this.santaHat2.resize(12, 12);
     }
 
-    windMillHat(p) {
+    drawWindMillHat(p) {
         if (this.showWindMillHat) {
             if (this.movingLeft) {
                 p.image(this.windmillHat, this.getXLocation() - 7, this.getYLocation() - 25);
@@ -103,7 +101,7 @@ class Cow extends Pet {
         }
     }
 
-    collar(p) {
+    drawCollar(p) {
         if (this.showCollar) {
             if (this.movingLeft) {
                 p.image(this.collar2, this.getXLocation() - 5, this.getYLocation() - 17);
@@ -113,7 +111,7 @@ class Cow extends Pet {
         }
     }
 
-    gentlemanHat(p) {
+    drawGentlemanHat(p) {
         if (this.showGentlemanHat) {
             if (this.movingLeft) {
                 p.image(this.gentlemanHat, this.getXLocation() - 7, this.getYLocation() - 27);
@@ -123,7 +121,7 @@ class Cow extends Pet {
         }
     }
 
-    sunglass(p) {
+    drawSunglass(p) {
         if (this.showSunglasses) {
             if (this.movingLeft) {
                 p.image(this.sunglasses2, this.getXLocation() - 10, this.getYLocation() - 20);
@@ -133,7 +131,7 @@ class Cow extends Pet {
         }
     }
 
-    cowboyHat(p) {
+    drawCowboyHat(p) {
         if (this.showCowboyHat) {
             if (this.movingLeft) {
                 p.image(this.cowboyHat, this.getXLocation() - 7, this.getYLocation() - 25);
@@ -143,7 +141,7 @@ class Cow extends Pet {
         }
     }
 
-    santaHat(p) {
+    drawSantaHat(p) {
         if (this.showSantaHat) {
             if (this.movingLeft) {
                 p.image(this.santaHat2, this.getXLocation() - 7, this.getYLocation() - 27);
