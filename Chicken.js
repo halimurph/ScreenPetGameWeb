@@ -126,9 +126,9 @@ class Chicken extends Pet {
     drawWindMillHat(p) {
         if (this.showWindMillHat) {
             if (this.movingLeft) {
-                p.image(this.windmillHat, this.getXLocation() - 10, this.getYLocation() - 27,12,12);
+                p.image(this.windmillHat, this.getXLocation() - 5, this.getYLocation() - 15,12,12);
             } else {
-                p.image(this.windmillHat2, this.getXLocation() - 2, this.getYLocation() - 27,12,12);
+                p.image(this.windmillHat2, this.getXLocation() - 2, this.getYLocation() - 15,12,12);
             }
         }
     }
@@ -136,9 +136,9 @@ class Chicken extends Pet {
     drawCollar(p) {
         if (this.showCollar) {
             if (this.movingLeft) {
-                p.image(this.collar2, this.getXLocation() - 10, this.getYLocation() - 18,12,12);
+                p.image(this.collar2, this.getXLocation() + 10, this.getYLocation() - 12,12,12);
             } else {
-                p.image(this.collar, this.getXLocation() - 2, this.getYLocation() - 18,12,12);
+                p.image(this.collar, this.getXLocation() - 2, this.getYLocation() - 12,12,12);
             }
         }
     }
