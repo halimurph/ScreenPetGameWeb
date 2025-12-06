@@ -33,3 +33,5 @@ function mouseDragged() {
 function mouseReleased() {
     screenPet.mouseReleased(window, mouseX, mouseY);
 }
+console.log("Cat image loaded? ", this.pet?.catImages?.[0]);
+
