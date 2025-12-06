@@ -1,5 +1,4 @@
 // ScreenPetUI.js - Main p5.js sketch file
-
 let screenPet;
 const fileSeparator = "/"; // Use forward slash for web paths
 
@@ -33,5 +32,3 @@ function mouseDragged() {
 function mouseReleased() {
     screenPet.mouseReleased(window, mouseX, mouseY);
 }
-console.log("Cat image loaded? ", this.pet?.catImages?.[0]);
-
