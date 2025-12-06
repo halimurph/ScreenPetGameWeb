@@ -66,49 +66,49 @@ class Pig extends Pet {
     }
 
     loadMedia(p) {
-        this.pigImages[0] = p.loadImage("ScreenPet IMG" + fileSeparator + "Pig-1.png");
-        this.pigImages[1] = p.loadImage("ScreenPet IMG" + fileSeparator + "Pig-2.png");
-        this.pigImages[2] = p.loadImage("ScreenPet IMG" + fileSeparator + "Pig-3.png");
-        this.pigImages[3] = p.loadImage("ScreenPet IMG" + fileSeparator + "Pig-4.png");
+        this.pigImages[0] = p.loadImage("sprites/Pig-1.png");
+        this.pigImages[1] = p.loadImage("sprites/Pig-2.png");
+        this.pigImages[2] = p.loadImage("sprites/Pig-3.png");
+        this.pigImages[3] = p.loadImage("sprites/Pig-4.png");
 
-        this.pigImages2[0] = p.loadImage("ScreenPet IMG" + fileSeparator + "Pig-1flipped.png");
-        this.pigImages2[1] = p.loadImage("ScreenPet IMG" + fileSeparator + "Pig-2flipped.png");
-        this.pigImages2[2] = p.loadImage("ScreenPet IMG" + fileSeparator + "Pig-3flipped.png");
-        this.pigImages2[3] = p.loadImage("ScreenPet IMG" + fileSeparator + "Pig-4flipped.png");
+        this.pigImages2[0] = p.loadImage("sprites/Pig-1flipped.png");
+        this.pigImages2[1] = p.loadImage("sprites/Pig-2flipped.png");
+        this.pigImages2[2] = p.loadImage("sprites/Pig-3flipped.png");
+        this.pigImages2[3] = p.loadImage("sprites/Pig-4flipped.png");
 
         for (let i = 0; i < this.pigImages.length; i++) {
             this.pigImages[i].resize(30, 20);
             this.pigImages2[i].resize(30, 20);
         }
 
-        this.windmillHat = p.loadImage("ScreenPet IMG" + fileSeparator + "windmillHat.png");
+        this.windmillHat = p.loadImage("sprites/windmillHat.png");
         this.windmillHat.resize(15, 15);
-        this.windmillHat2 = p.loadImage("ScreenPet IMG" + fileSeparator + "windmillHatflipped.png");
+        this.windmillHat2 = p.loadImage("sprites/windmillHatflipped.png");
         this.windmillHat2.resize(15, 15);
 
-        this.collar = p.loadImage("ScreenPet IMG" + fileSeparator + "collar.png");
+        this.collar = p.loadImage("sprites/collar.png");
         this.collar.resize(15, 15);
-        this.collar2 = p.loadImage("ScreenPet IMG" + fileSeparator + "collarflipped.png");
+        this.collar2 = p.loadImage("sprites/collarflipped.png");
         this.collar2.resize(15, 15);
 
-        this.gentlemanHat = p.loadImage("ScreenPet IMG" + fileSeparator + "gentlemanHat.png");
+        this.gentlemanHat = p.loadImage("sprites/gentlemanHat.png");
         this.gentlemanHat.resize(15, 15);
-        this.gentlemanHat2 = p.loadImage("ScreenPet IMG" + fileSeparator + "gentlemanHatflipped.png");
+        this.gentlemanHat2 = p.loadImage("sprites/gentlemanHatflipped.png");
         this.gentlemanHat2.resize(15, 15);
 
-        this.sunglasses = p.loadImage("ScreenPet IMG" + fileSeparator + "sunglasses.png");
+        this.sunglasses = p.loadImage("sprites/sunglasses.png");
         this.sunglasses.resize(15, 15);
-        this.sunglasses2 = p.loadImage("ScreenPet IMG" + fileSeparator + "sunglassesflipped.png");
+        this.sunglasses2 = p.loadImage("sprites/sunglassesflipped.png");
         this.sunglasses2.resize(15, 15);
 
-        this.cowboyHat = p.loadImage("ScreenPet IMG" + fileSeparator + "cowboyHat.png");
+        this.cowboyHat = p.loadImage("sprites/cowboyHat.png");
         this.cowboyHat.resize(15, 15);
-        this.cowboyHat2 = p.loadImage("ScreenPet IMG" + fileSeparator + "cowboyHatflipped.png");
+        this.cowboyHat2 = p.loadImage("sprites/cowboyHatflipped.png");
         this.cowboyHat2.resize(15, 15);
 
-        this.santaHat = p.loadImage("ScreenPet IMG" + fileSeparator + "santaHat.png");
+        this.santaHat = p.loadImage("sprites/santaHat.png");
         this.santaHat.resize(15, 15);
-        this.santaHat2 = p.loadImage("ScreenPet IMG" + fileSeparator + "santaHatflipped.png");
+        this.santaHat2 = p.loadImage("sprites/santaHatflipped.png");
         this.santaHat2.resize(15, 15);
     }
 
