@@ -110,14 +110,16 @@ class ScreenPetGame {
                 this.currentPet.xTarget = nearestCoin.getxLocation();
                 this.currentPet.yTarget = nearestCoin.getyLocation();
 
-                if (this.currentPet.getXLocation() === nearestCoin.getxLocation() &&
-                    this.currentPet.getYLocation() === nearestCoin.getyLocation()) {
-                    let index = this.coins.indexOf(nearestCoin);
-                    if (index > -1) {
+                let dx = Math.abs(this.currentPet.getXLocation() - nearestCoin.getxLocation());
+                let dy = Math.abs(this.currentPet.getYLocation() - nearestCoin.getyLocation());
+
+                    if (dx < 15 && dy < 15) {  // Within 15 pixels = collected
+                        let index = this.coins.indexOf(nearestCoin);
+                        if (index > -1) {
                         this.coins.splice(index, 1);
-                    }
-                    this.collectedCoinCount++;
-                }
+                         }
+                     this.collectedCoinCount++;
+                 }
             }
         }
     }
