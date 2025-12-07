@@ -3,7 +3,7 @@ class Pig extends Pet {
         super("Pig", petLocked, x, y);
         
         this.isClick = false;
-        this.startTime = 4;
+        this.startTime = 5; // FIXED: 5 seconds instead of 4
         this.timeStart = 0;
         this.timerStarted = false;
         this.timer = this.startTime;
@@ -11,6 +11,8 @@ class Pig extends Pet {
         this.currentFrame = 0;
         this.pigImages = new Array(this.numFrames);
         this.pigImages2 = new Array(this.numFrames);
+        this.normalSpeed = 2; // Normal movement speed
+        this.chaseSpeed = 10; // FAST chase speed!
     }
 
     draw(p) {
@@ -20,29 +22,39 @@ class Pig extends Pet {
             if (p.frameCount % 10 === 0) {
                 this.currentFrame = (this.currentFrame + 1) % this.numFrames;
             }
-            p.image(this.pigImages[this.currentFrame], this.xLocation - 15, this.yLocation - 10,30,20);
+            p.image(this.pigImages[this.currentFrame], this.xLocation - 15, this.yLocation - 10, 30, 20);
         } else {
             if (p.frameCount % 10 === 0) {
                 this.currentFrame = (this.currentFrame + 1) % this.numFrames;
             }
-            p.image(this.pigImages2[this.currentFrame], this.xLocation - 15, this.yLocation - 10,30,20);
+            p.image(this.pigImages2[this.currentFrame], this.xLocation - 15, this.yLocation - 10, 30, 20);
         }
 
+        // CHASE MOUSE BEHAVIOR
         if (this.isClick === true) {
             if (this.timerStarted) {
+                // Update timer
                 let current = Math.floor((p.millis() - this.timeStart) / 1000);
                 this.timer = this.startTime - current;
 
-                p.frameRate(150);
-
+                // Set target to mouse position
                 this.xTarget = p.mouseX;
                 this.yTarget = p.mouseY;
-            }
-        }
+                
+                // INCREASE SPEED during chase!
+                this.speed = this.chaseSpeed;
 
-        if (this.timer === 0) {
-            this.timerStarted = false;
-            p.frameRate(60);
+                // Check if timer expired
+                if (this.timer <= 0) {
+                    this.timerStarted = false;
+                    this.isClick = false;
+                    this.speed = this.normalSpeed; // Reset to normal speed
+                    this.timer = this.startTime; // Reset timer
+                }
+            }
+        } else {
+            // Not chasing, use normal speed
+            this.speed = this.normalSpeed;
         }
 
         this.drawWindMillHat(p);
@@ -56,6 +68,7 @@ class Pig extends Pet {
     mouseClicked(p) {
         this.timeStart = p.millis();
         this.timerStarted = true;
+        this.timer = this.startTime; // Reset timer to 5
     }
 
     chaseMouse(p) {
